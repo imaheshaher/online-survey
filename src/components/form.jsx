@@ -38,22 +38,35 @@ function GovernmentForm() {
   });
   const [tableData, setTableData] = useState([
     {
+      specification:"मालमत्तेचे वर्णन",
       description: "दगड वीट माती बांधकाम",
       currentStatus: "दगड वीट माती बांधकाम",
       constructionYear: "१९७०",
     },
     {
+      specification:"इतर",
       description: "दुमजली",
       currentStatus: "खण दुमजली (दुकान)",
       constructionYear: "",
     },
     {
+      specification:"बांधकाम किती मजली आहे",
       description: "तळमजला",
       currentStatus: "खालील निवडा",
       constructionYear: " ",
     },
-    { description: "२३*२६.६", currentStatus: "१९*२७", constructionYear: "" },
-    { description: "०*०", currentStatus: "५ *२७", constructionYear: "" },
+
+    {
+      specification:"इमारतीचे क्षेत्रफळ",
+      description: "२३*२६.६",
+     currentStatus: "१९*२७", 
+     constructionYear: "" },
+
+    {
+      specification:"जमिनीचे क्षेत्रफळ",
+      description: "०*०",
+     currentStatus: "५ *२७",
+      constructionYear: "" },
   ]);
   const [tableData2, setTableData2] = useState([
     {
@@ -101,14 +114,13 @@ function GovernmentForm() {
   return (
     <form className="form-container" onSubmit={handleSubmit}>
       {/* Form Header */}
-      <div className="form-header">
+      <div className="header-container">
         <div>
-          <img src={gandhiLogo} alt="" width="160px" />
+          <img src={gandhiLogo} />
         </div>
         <div>
           <h3>
-            ऑनलाईन
-            <br /> फेर रिव्हिजन सर्व्ह फॉर्म{" "}
+            ऑनलाईन <br /> फेर रिव्हिजन सर्व्ह फॉर्म{" "}
           </h3>
           <p>
             शासन अधिसूचना क्र. व्ही पी य म २०१५ / प्र क्र दिनांक - ३१/१२/२०१५
@@ -119,7 +131,7 @@ function GovernmentForm() {
           </p>
         </div>
         <div>
-          <img src={gandhiLogo} alt="" width="160px" />
+          <img src={gandhiLogo}  />
         </div>
       </div>
 
@@ -129,12 +141,14 @@ function GovernmentForm() {
           color: "grey",
           border: "solid",
           borderWidth: "1px",
+          width:"100%"
         }}
       />
 
-      <div className="container">
+      <div className="main-container">
         {/* Form fields */}
-        <div>
+        <div className="row1">
+        <b>१)</b>
           <label htmlFor="gramPanchayat">ग्रामपंचायत -:</label>
           <input
             type="text"
@@ -165,7 +179,7 @@ function GovernmentForm() {
             required
           />
         </div>
-        <div>
+        <div className="row2">
           <label htmlFor="ownerName">
             मालकाचे पूर्ण नाव श्री / सौ / श्रीमती -:
           </label>
@@ -178,7 +192,8 @@ function GovernmentForm() {
             required
           />
         </div>
-        <div>
+
+        <div className="row3">
           <label htmlFor="wifeName">पत्नीचे पूर्ण नाव सौ / श्रीमती -:</label>
           <input
             type="text"
@@ -189,7 +204,8 @@ function GovernmentForm() {
             required
           />
         </div>
-        <div>
+
+        <div className="row4">
           <label htmlFor="mobile">मो नं -:</label>
           <input
             type="text"
@@ -200,7 +216,8 @@ function GovernmentForm() {
             required
           />
         </div>
-        <div>
+
+        <div className="row5">
           <label htmlFor="occupation">
             भोगवटा धारकाचे नाव श्री / सौ / श्रीमती -:
           </label>
@@ -212,10 +229,10 @@ function GovernmentForm() {
             onChange={handleChange}
             required
           />
-          <br />
-          <br />
-        </div>
-        <div>
+          </div>
+
+       
+        <div class="row6">
           <label htmlFor="aadharNumber">आधार क्र -:</label>
           <input
             type="text"
@@ -225,8 +242,6 @@ function GovernmentForm() {
             onChange={handleChange}
             required
           />
-          <br />
-          <br />
 
           <label htmlFor="familyCount">कुटुंबातील संख्या -:</label>
           <input
@@ -236,19 +251,20 @@ function GovernmentForm() {
             value={formData.familyCount}
             onChange={handleChange}
             required
-          />
-          <br />
-          <br />
-        </div>
+          />          
+      
+
         <hr />
 
+        <div class="row7">
+
+        <b>२)</b>
         <label htmlFor="milakatNumber">मिळकत क्र -:</label>
         <input
           type="text"
           id="milakatNumber"
           name="milakatNumber"
           value={formData.milakatNumber}
-          style={{ width: "100px" }}
           onChange={handleChange}
           required
         />
@@ -259,7 +275,6 @@ function GovernmentForm() {
           id="citySurveyNumber"
           name="citySurveyNumber"
           value={formData.citySurveyNumber}
-          style={{ width: "100px" }}
           onChange={handleChange}
           required
         />
@@ -270,7 +285,6 @@ function GovernmentForm() {
           id="wardNumber"
           name="wardNumber"
           value={formData.wardNumber}
-          style={{ width: "100px" }}
           onChange={handleChange}
           required
         />
@@ -281,7 +295,6 @@ function GovernmentForm() {
           id="plotNumber"
           name="plotNumber"
           value={formData.plotNumber}
-          style={{ width: "100px" }}
           onChange={handleChange}
           required
         />
@@ -292,13 +305,12 @@ function GovernmentForm() {
           id="groupNumber"
           name="groupNumber"
           value={formData.groupNumber}
-          style={{ width: "100px" }}
           onChange={handleChange}
           required
         />
-        <br />
-        <br />
+        </div>
 
+       <div class="row8">
         <label htmlFor="roadName">रस्त्याचे नाव -:</label>
         <input
           type="text"
@@ -308,11 +320,12 @@ function GovernmentForm() {
           onChange={handleChange}
           required
         />
-        <br />
-        <br />
-
+        </div>
+       
         <hr />
 
+      <div className="row9">
+      <b>३)</b>
         <label htmlFor="landType">जमिनीचा प्रकार -:</label>
         <input
           type="text"
@@ -322,40 +335,38 @@ function GovernmentForm() {
           style={{ width: "300px" }}
           onChange={handleChange}
         />
-        <br />
-        <br />
+       </div>
 
         <table>
           <tr>
-            <th></th>
-            <th>ग्राम. रजिस्टर नुसार</th>
-            <th>सध्या स्थिती नुसार </th>
-            <th>बांधकाम वर्ष </th>
+            <th className="table-cell"></th>
+            <th className="table-cell">ग्राम. रजिस्टर नुसार</th>
+            <th className="table-cell">सध्या स्थिती नुसार </th>
+            <th className="table-cell">बांधकाम वर्ष </th>
           </tr>
           {tableData.map((row, index) => (
             <tr key={index}>
-              <th>मालमत्तेचे वर्णन </th>
+              <th>{row.specification} </th>
               <td>
                 <input
                   type="text"
                   value={row.description}
-                  style={{ width: "150px" }}
                   onChange={(e) => handleTableChange(e, index, "description")}
                 />
               </td>
+
               <td>
                 <input
                   type="text"
                   value={row.currentStatus}
-                  style={{ width: "150px" }}
                   onChange={(e) => handleTableChange(e, index, "currentStatus")}
                 />
               </td>
+
               <td>
                 <input
                   type="text"
                   value={row.constructionYear}
-                  style={{ width: "150px" }}
                   onChange={(e) =>
                     handleTableChange(e, index, "constructionYear")
                   }
@@ -364,8 +375,8 @@ function GovernmentForm() {
             </tr>
           ))}
         </table>
-        <div>
-          <br />
+
+        <div className="row9"> 
           <label htmlFor="milakatPrakar"> मिळकत वापर प्रकार -:</label>
           <input
             id="milakatPrakar"
@@ -375,9 +386,9 @@ function GovernmentForm() {
             required
             style={{ width: "100px" }}
           />
-          <br />
-          <br />
-
+          </div>
+                    
+         <div class="row10">
           <label htmlFor="sauchalay"> शौचालय -:</label>
           <input
             id="sauchalay"
@@ -385,7 +396,6 @@ function GovernmentForm() {
             value={formData.sauchalay}
             onChange={handleChange}
             required
-            style={{ width: "100px" }}
           />
 
           <label htmlFor="nalConnection">नळ कनेक्शन -:</label>
@@ -395,8 +405,7 @@ function GovernmentForm() {
             name="nalConnection"
             value={formData.nalConnection}
             onChange={handleChange}
-            required
-            style={{ width: "100px" }}
+            required           
           />
 
           <label htmlFor="gasConnection">गॅस कनेक्शन-:</label>
@@ -407,7 +416,6 @@ function GovernmentForm() {
             value={formData.gasConnection}
             onChange={handleChange}
             required
-            style={{ width: "100px" }}
           />
 
           <label htmlFor="bijConnection">वीज कनेक्शन -:</label>
@@ -418,30 +426,29 @@ function GovernmentForm() {
             value={formData.bijConnection}
             onChange={handleChange}
             required
-            style={{ width: "100px" }}
           />
-          <br />
-          <br />
+          </div>
 
           <p>
             (टीप -: मालमत्तेच्या वर्णन क्षेत्रफळामध्ये व्हरांडा / ओटा / पडवी
             यांचा समावेश करावा ){" "}
           </p>
 
+       <div class="table2">
           <table>
             <thead>
-              <tr>
-                <th>अ. न. </th>
-                <th>इमारतीचे जमिनीचे क्षेत्रफळ(लांबी*रुंदी)</th>
-                <th>क्षेत्रफळ(चौ फूट)</th>
-                <th>क्षेत्रफळ(चौ फूट/१०.७६)= चौ मीटर </th>
+              <tr className="table-row header">
+                <th className="table-cell">अ. न. </th>
+                <th className="table-cell">इमारतीचे जमिनीचे क्षेत्रफळ(लांबी*रुंदी)</th>
+                <th className="table-cell">क्षेत्रफळ(चौ फूट)</th>
+                <th className="table-cell">क्षेत्रफळ(चौ फूट/१०.७६)= चौ मीटर </th>
               </tr>
             </thead>
             <tbody>
               {tableData2.map((row) => (
-                <tr key={row.id}>
-                  <td>{row.id}</td>
-                  <td>
+                <tr className="table-row" key={row.id}>
+                  <td className="table-cell">{row.id}</td>
+                  <td className="table-cell">
                     <input
                       type="text"
                       name="lengthWidth"
@@ -449,7 +456,7 @@ function GovernmentForm() {
                       onChange={(e) => handleTableChange2(e, row.id)}
                     />
                   </td>
-                  <td>
+                  <td className="table-cell">
                     <input
                       type="text"
                       name="areaSquareFeet"
@@ -457,7 +464,7 @@ function GovernmentForm() {
                       onChange={(e) => handleTableChange2(e, row.id)}
                     />
                   </td>
-                  <td>
+                  <td className="table-cell">
                     <input
                       type="text"
                       name="areaSquareMeter"
@@ -476,47 +483,50 @@ function GovernmentForm() {
           करणेकामी आवश्यक त्या सर्वे दस्तऐवजांची पूर्तता करून ग्राम. ची पूर्व
           परवानगी घेणे मिळकत धारकावर बंधनकारक आहे{" "}
         </p>
-        <p style={{ textAlign: "center" }}>प्रमाणपत्र </p>
-        <p>
-          प्रमाणित करण्यात येते की ग्रामपंचायतने उपरोक्त मालमत्तेचे (इमारत /खुली
-          जागा ) मोजमाप माझ्या समक्ष केले असून ते मला मान्य आहे तसेच इमारतीचे
-          बांधकाम वर्ष व इमारतीचे वय मी स्वतः सांगत असून ते ग्रामपंचायत
-          कार्यालयात दिलेल्या नोंदी प्रमाणे बरोबर आहे. उपरोक्त माहितीच्या बाबतीत
-          माझी कोणत्याही प्रकारे तक्रार नाही. सदर माहितीस मी स्वतः जबाबदार
-          राहील.{" "}
-        </p>
+        </div>
+        </div>
 
         <div className="footer-container">
-          <div>
-            <p>
-              <b>चतु:सीमा:</b>
-              <br />
-              <p>ऊ ऊत्तर </p>
-              <p>द -दक्षिण</p>
-              <p>पू -पूर्व </p>
-              <p>प -पश्चिम </p>
-            </p>
-          </div>
+              <div>
+                <p>
+                  <b>चतु:सीमा:</b>
+                  <p>ऊ ऊत्तर </p>
+                  <p>द -दक्षिण</p>
+                  <p>पू -पूर्व </p>
+                  <p>प -पश्चिम </p>
+                </p>
+              </div>
 
-          <div>
-            <img src={img2} alt="Shop Image" style={{ width: "450px" }} />
-          </div>
+              <div>
+                <img src={img2} alt="Shop Image"/>
+              </div>
 
-          <div>
-            <input type="text" />
-            <br />
-            <p>खातेदाराची नाव व स्वाक्षरी </p>
-            <br />
-            <p>समक्ष </p>
-            <p>
-              1)
-       
-            </p>
-            <p>2)</p>
-            <p>3)</p>
-          </div>
-        </div>
-      </div>
+              <div>
+                <input type="text" />
+                <p>खातेदाराची नाव व स्वाक्षरी </p>
+                </div>
+            </div>
+
+         <div className="certificate">
+              <p  style={{ textAlign: "center" }}>प्रमाणपत्र </p>
+              <p>
+                प्रमाणित करण्यात येते की ग्रामपंचायतने उपरोक्त मालमत्तेचे (इमारत /खुली
+                जागा ) मोजमाप माझ्या समक्ष केले असून ते मला मान्य आहे तसेच इमारतीचे
+                बांधकाम वर्ष व इमारतीचे वय मी स्वतः सांगत असून ते ग्रामपंचायत
+                कार्यालयात दिलेल्या नोंदी प्रमाणे बरोबर आहे. उपरोक्त माहितीच्या बाबतीत
+                माझी कोणत्याही प्रकारे तक्रार नाही. सदर माहितीस मी स्वतः जबाबदार
+                राहील.{" "}
+              </p>
+              
+
+                    <div>
+                            <p><b>५)</b> समक्ष </p>
+                            <p>1)<input type="text" name="" id=""/></p>
+                            <p>2)<input type="text" name="" id=""/></p>
+                    </div>
+          </div>   
+      
+      
     </form>
   );
 }

@@ -7,6 +7,9 @@
 .row7 input{
     width: 100px;
 }
+.row2 input,.row3 input,.row5 input,.row8 input{
+    width: 250px;
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -63,7 +66,7 @@ input{
     width: 80px;
 }
 table input{
-    width: 100px;
+    width: 140px;
 }
 .main-container {
     margin-left: 5px;
@@ -121,6 +124,9 @@ hr{
     }
     .row7 input{
         width: 6.5%;
+    } 
+    .row2 input,.row3 input,.row5 input,.row8 input{
+        width: 250px;
     }
     body {
         font-family: Arial, sans-serif;
@@ -569,7 +575,16 @@ hr{
         font-size: 6px;
     }
     .row2 input{
-        width: 70px;
+        width: 150px;
+    }
+    .row3 input{
+        width: 150px;
+    }
+    .row5 input{
+        width: 150px;
+    }
+    .row8 input{
+        width: 150px;
     }
     .row7 input{
         width: 20px;
@@ -607,13 +622,8 @@ hr{
     }
     .certificate{
         font-size: 6px;
-    }
-    
-    
-    
-    
+    } 
 }
-
 
 @media screen and (max-width : 320px) {
    

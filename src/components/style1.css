@@ -7,8 +7,8 @@
 .row7 input{
     width: 100px;
 }
-.row2 input,.row3 input,.row5 input,.row8 input{
-    width: 250px;
+.row2 input,.row3 input,.row8 input{
+    width: 500px;
 }
 body {
     font-family: Arial, sans-serif;
@@ -40,7 +40,7 @@ body {
 }
 .footer-container{
     display:flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin-right: 100px;
 }
@@ -112,21 +112,49 @@ hr{
     margin-top: 2px;
     margin-bottom: 2px;
 }
-
+.row1{
+    display: flex;
+    justify-content:space-between;
+}
+.row1 input{
+    width: 100px;
+}
+.witness input{
+    width: 500px;
+}
+.mobile input{
+    width: 70px;
+}
 
 
 @media screen and (max-width : 1200px) {
     .container{
         width: 90%;
     }
+    .mobile input{
+        width: 70px;
+    }
+    .female, .male, .handicap input{
+        width: 70px;
+    }
+    input#handicap {
+        width: 70px;
+    }
+    input#occupation {
+        width: 250px;
+    }
+    input#mobile {
+        width: 90px;
+    }
+    
     .row7{
         font-size: 15px;  
     }
     .row7 input{
         width: 6.5%;
     } 
-    .row2 input,.row3 input,.row5 input,.row8 input{
-        width: 250px;
+    .row2 input,.row3 input,.row8 input,.row9 input{
+        width: 500px;
     }
     body {
         font-family: Arial, sans-serif;
@@ -173,10 +201,10 @@ hr{
         border: none;
     }
     .row1 input{
-        width: 80px;
+        width: 150px;
     }
     table input{
-        width: 100px;
+        width: 140px;
     }
     .main-container {
         margin-left: 5px;
@@ -270,6 +298,12 @@ hr{
     .row10 input#text{
         width: 6%;
     }
+    .row2 input,.row3 input,.row8 input,.row9 input{
+        width: 400px;
+    }
+    .female, .male, .handicap input{
+        width: 60px;
+    }
      
 }
 
@@ -327,6 +361,22 @@ hr{
     }
     .footer-container img{
         width: 350px;
+    }
+    .row1{
+        display: flex;
+        justify-content:space-between;
+    }
+    .row1 input{
+        width: 80px;
+    }
+    .row2 input,.row3 input,.row8 input,.row9 input{
+        width: 300px;
+    }
+    .female, .male, .handicap input{
+        width: 50px;
+    }
+    input#occupation {
+        width: 150px;
     }
     
 }
@@ -392,6 +442,15 @@ hr{
     .footer-container img{
         width:300px;
     }
+    .witness input{
+        width: 400px;
+    }
+    .female, .male, .handicap input{
+        width: 40px;
+    }
+    input#occupation {
+        width: 100px;
+    }
 }
 
 @media screen and (max-width:588px) {
@@ -419,9 +478,7 @@ hr{
       .row1 input{
         width: 60px;
       }
-      .row6 input{
-        width: 60px;
-      }
+      
       .row9 input{
         width: 170px;
       } 
@@ -462,6 +519,18 @@ hr{
     .certificate{
         font-size: 9px;
     }
+    .witness input{
+        width: 350px;
+    }
+    .row2 input, .row3 input, .row8 input, .row9 input {
+        width: 230px;
+    }
+    .female, .male, .handicap input{
+        width: 30px;
+    }
+    input#aadharNumber {
+        width: 80px;
+}
     
 
 }
@@ -476,6 +545,10 @@ hr{
     }
     .header-container p{
         font-size: 8px;
+    }
+    .form-container{
+        padding-left: 5px;
+    padding-right: 5px;
     }
     .header-container img{
         width: 55px ;
@@ -503,9 +576,7 @@ hr{
     .row1 input{
         width: 60px;
       }
-      .row6 input{
-        width: 60px;
-      }
+      
       .row9 input{
         width: 170px;
       } 
@@ -521,6 +592,25 @@ hr{
     .row10 input{
         width: 30px;
     }
+    .witness input{
+        width: 300px;
+    }
+    .row2 input, .row3 input, .row8 input, .row9 input {
+        width: 200px;
+    }
+    input#mobile{
+        width: 60px;
+    }
+    input#aadharNumber {
+        width: 70px;
+    }
+    .female, .male, .handicap input {
+        width: 20px;
+    }
+    input#occupation {
+        width: 90px;
+    }
+
 
 }
 
@@ -528,6 +618,12 @@ hr{
     .row9 input{
         width: 170px;
       }
+      input#male, input#female, input#handicap {
+        width: 20px;
+     }
+     input#mobile {
+        width: 40px;
+    }
     .main-container{
         font-size: 8px;
     }
@@ -623,6 +719,9 @@ hr{
     .certificate{
         font-size: 6px;
     } 
+    .witness input{
+        width: 250px;
+    }
 }
 
 @media screen and (max-width : 320px) {
@@ -700,5 +799,8 @@ hr{
     }
     .certificate{
         font-size: 6px;
+    }
+    .witness input{
+        width: 200px;
     }
 }

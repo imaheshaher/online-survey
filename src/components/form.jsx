@@ -12,7 +12,9 @@ function GovernmentForm() {
     mobile: "९८७६५४३२१०",
     holderName: "स्वतः",
     aadharNumber: "११२२-३३४४-५५६६",
-    familyCount: "00",
+    female: "02",
+    male:"02",
+    handicap:"00",
     milakatNumber: "१०७",
     surveyNumber: "००",
     wardNumber: "०",
@@ -20,20 +22,12 @@ function GovernmentForm() {
     groupNumber: "गावठाण",
     roadName: "राम मंदिर शेजारी (गाव  रस्ता)",
     occupation: "स्वतः",
-    aadharNumber: "११२२-३३४४-५५६६",
-    familyCount: "00",
-    milakatNumber: "१०७",
-    citySurveyNumber: "००",
-    wardNumber: "०",
-    plotNumber: "४५",
-    groupNumber: "गावठाण",
-    roadName: "राम मंदिर शेजारी (गाव  रस्ता)",
     landType: "गावठाण /गायरान /सार्वजनिक प्रशासकीय विभाग",
     milakatPrakar: "निवासी",
-    sauchalay: "आहे",
-    nalConnection: "आहे",
-    gasConnection: "आहे",
-    bijConnection: "आहे",
+    sauchalay: "आहे /नाही ",
+    nalConnection: "आहे /नाही ",
+    gasConnection: "आहे /नाही ",
+    bijConnection: "आहे /नाही ",
     // Add more form fields as needed
   });
   const [tableData, setTableData] = useState([
@@ -116,7 +110,7 @@ function GovernmentForm() {
       {/* Form Header */}
       <div className="header-container">
         <div>
-          <img src={gandhiLogo} />
+          <img src={gandhiLogo} alt="Gandhi" />
         </div>
         <div>
           <h3>
@@ -131,7 +125,7 @@ function GovernmentForm() {
           </p>
         </div>
         <div>
-          <img src={gandhiLogo}  />
+          <img src={gandhiLogo} alt="Gandhi " />
         </div>
       </div>
 
@@ -147,37 +141,44 @@ function GovernmentForm() {
 
       <div className="main-container">
         {/* Form fields */}
+        
         <div className="row1">
-        <b>१)</b>
-          <label htmlFor="gramPanchayat">ग्रामपंचायत -:</label>
-          <input
-            type="text"
-            id="gramPanchayat"
-            name="gramPanchayat"
-            value={formData.gramPanchayat}
-            onChange={handleChange}
-            required
-          />
+       
+        <div>
+            <label htmlFor="gramPanchayat"><b>१)</b>ग्रामपंचायत -:</label>
+              <input
+                type="text"
+                id="gramPanchayat"
+                name="gramPanchayat"
+                value={formData.gramPanchayat}
+                onChange={handleChange}
+                required
+              />
+       </div>
 
-          <label htmlFor="taluka">तालुका -:</label>
-          <input
-            type="text"
-            id="taluka"
-            name="taluka"
-            value={formData.taluka}
-            onChange={handleChange}
-            required
-          />
+       <div>
+              <label htmlFor="taluka">तालुका -:</label>
+              <input
+                type="text"
+                id="taluka"
+                name="taluka"
+                value={formData.taluka}
+                onChange={handleChange}
+                required
+              />
+      </div>
 
-          <label htmlFor="district">जिल्हा -:</label>
-          <input
-            type="text"
-            id="district"
-            name="district"
-            value={formData.district}
-            onChange={handleChange}
-            required
-          />
+      <div>
+              <label htmlFor="district">जिल्हा -:</label>
+              <input
+                type="text"
+                id="district"
+                name="district"
+                value={formData.district}
+                onChange={handleChange}
+                required
+              />
+              </div>
         </div>
         <div className="row2">
           <label htmlFor="ownerName">
@@ -205,17 +206,6 @@ function GovernmentForm() {
           />
         </div>
 
-        <div className="row4">
-          <label htmlFor="mobile">मो नं -:</label>
-          <input
-            type="text"
-            id="mobile"
-            name="mobile"
-            value={formData.mobile}
-            onChange={handleChange}
-            required
-          />
-        </div>
 
         <div className="row5">
           <label htmlFor="occupation">
@@ -226,6 +216,16 @@ function GovernmentForm() {
             id="occupation"
             name="occupation"
             value={formData.occupation}
+            onChange={handleChange}
+            required
+          />
+
+          <label htmlFor="mobile">मो नं -:</label>
+          <input
+            type="text"
+            id="mobile"
+            name="mobile"
+            value={formData.mobile}
             onChange={handleChange}
             required
           />
@@ -242,24 +242,55 @@ function GovernmentForm() {
             onChange={handleChange}
             required
           />
-
-          <label htmlFor="familyCount">कुटुंबातील संख्या -:</label>
+  
+          <label htmlFor="familyCount">कुटुंबातील संख्या -: </label>
+         <label > स्री </label>  
           <input
+            className="female"         
             type="text"
-            id="familyCount"
-            name="familyCount"
-            value={formData.familyCount}
+            id="female"
+            name="Female"
+            value={formData.female}
             onChange={handleChange}
             required
-          />          
-      
+          />
 
-        <hr />
+        <label > पुरुष </label>  
+          <input  
+            className="male"       
+            type="text"
+            id="male"
+            name="male"
+            value={formData.male}
+            onChange={handleChange}
+            required
+          />
+
+       <label > अपंग </label>  
+          <input
+            className="handicap"         
+            type="text"
+            id="handicap"
+            name="handicap"
+            value={formData.handicap}
+            onChange={handleChange}
+            required
+          />
+
+
+      <hr
+        style={{
+          fontWeight: "bold",
+          color: "grey",
+          border: "solid",
+          borderWidth: "1px",
+          width:"100%"
+        }}
+      />
 
         <div class="row7">
 
-        <b>२)</b>
-        <label htmlFor="milakatNumber">मिळकत क्र -:</label>
+        <label htmlFor="milakatNumber"><b>२)</b>मिळकत क्र -:</label>
         <input
           type="text"
           id="milakatNumber"
@@ -322,17 +353,24 @@ function GovernmentForm() {
         />
         </div>
        
-        <hr />
+       <hr
+        style={{
+          fontWeight: "bold",
+          color: "grey",
+          border: "solid",
+          borderWidth: "1px",
+          width:"100%"
+        }}
+      />
 
       <div className="row9">
-      <b>३)</b>
-        <label htmlFor="landType">जमिनीचा प्रकार -:</label>
+      
+        <label htmlFor="landType"><b>३)</b>जमिनीचा प्रकार -:</label>
         <input
           type="text"
           id="landType"
           name="landType"
           value={formData.landType}
-          style={{ width: "300px" }}
           onChange={handleChange}
         />
        </div>
@@ -487,25 +525,14 @@ function GovernmentForm() {
         </div>
 
         <div className="footer-container">
-              <div>
-                <p>
-                  <b>चतु:सीमा:</b>
-                  <p>ऊ ऊत्तर </p>
-                  <p>द -दक्षिण</p>
-                  <p>पू -पूर्व </p>
-                  <p>प -पश्चिम </p>
-                </p>
-              </div>
+              
 
               <div>
-                <img src={img2} alt="Shop Image"/>
+                <img src={img2} alt="Shop"/>
               </div>
 
-              <div>
-                <input type="text" />
-                <p>खातेदाराची नाव व स्वाक्षरी </p>
-                </div>
-            </div>
+              
+         </div>
 
          <div className="certificate">
               <p  style={{ textAlign: "center" }}>प्रमाणपत्र </p>
@@ -519,10 +546,15 @@ function GovernmentForm() {
               </p>
               
 
-                    <div>
+                    <div className="witness">
                             <p><b>५)</b> समक्ष </p>
                             <p>1)<input type="text" name="" id=""/></p>
                             <p>2)<input type="text" name="" id=""/></p>
+                    </div>
+
+                    <div >
+                            <p>खातेदाराची नाव व स्वाक्षरी </p>
+                            <input type="text" />
                     </div>
           </div>   
       

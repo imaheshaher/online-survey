@@ -105,6 +105,19 @@ function GovernmentForm() {
     console.log(formData);
   };
 
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleClick = (option) => {
+    setSelectedOption(option);
+  };
+
+  const getStrikethroughStyle = (option) => {
+    if (selectedOption && selectedOption !== option) {
+      return { textDecoration: 'line-through' };
+    }
+    return {};
+  };
+
   return (
     <form className="form-container" onSubmit={handleSubmit}>
       {/* Form Header */}
@@ -138,6 +151,8 @@ function GovernmentForm() {
           width:"100%"
         }}
       />
+      
+      
 
       <div className="main-container">
         {/* Form fields */}
@@ -180,9 +195,31 @@ function GovernmentForm() {
               />
               </div>
         </div>
+
         <div className="row2">
-          <label htmlFor="ownerName">
-            मालकाचे पूर्ण नाव श्री / सौ / श्रीमती -:
+          <label htmlFor="ownerName"> 
+          <label htmlFor="ownerName">मालकाचे पूर्ण नाव </label>
+
+        <label   
+        style={getStrikethroughStyle('श्री')}
+        onClick={() => handleClick('श्री')}
+      >
+         श्री /
+      </label>
+      <label
+        style={getStrikethroughStyle('सौ')}
+        onClick={() => handleClick('सौ')}
+      >
+        सौ /
+      </label>
+      <label
+        style={getStrikethroughStyle('श्रीमती')}
+        onClick={() => handleClick('श्रीमती')}
+      >
+        श्रीमती :-
+      </label>
+
+            
           </label>
           <input
             type="text"
@@ -195,7 +232,34 @@ function GovernmentForm() {
         </div>
 
         <div className="row3">
-          <label htmlFor="wifeName">पत्नीचे पूर्ण नाव सौ / श्रीमती -:</label>
+          <label htmlFor="wifeName">पत्नीचे पूर्ण नाव 
+
+                  <label   
+                style={getStrikethroughStyle('श्री')}
+                onClick={() => handleClick('श्री')}
+              >
+                श्री /
+              </label>
+              <label
+                style={getStrikethroughStyle('सौ')}
+                onClick={() => handleClick('सौ')}
+              >
+                सौ /
+              </label>
+              <label
+                style={getStrikethroughStyle('श्रीमती')}
+                onClick={() => handleClick('श्रीमती')}
+              >
+                श्रीमती :-
+      </label>
+
+
+
+
+
+          </label>
+
+
           <input
             type="text"
             id="wifeName"

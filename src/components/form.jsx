@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./style1.css"; // Import your CSS file here
 import gandhiLogo from "./gandhi.jpeg";
-import img2 from "./img2.jpg";
 function GovernmentForm() {
   const [formData, setFormData] = useState({
     gramPanchayat: "पिंपळस",
@@ -117,6 +116,46 @@ function GovernmentForm() {
     }
     return {};
   };
+
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [preview, setPreview] = useState(null);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setSelectedImage(file);
+      setPreview(URL.createObjectURL(file));
+    };}
+
+    const handleSubmit2 = async (e) => {
+      e.preventDefault();
+      if (selectedImage) {
+        const formData = new FormData();
+        formData.append('image', selectedImage);
+  
+        try {
+          // Replace the URL with your server endpoint for uploading images
+          const response = await fetch('https://your-server-endpoint/upload', {
+            method: 'POST',
+            body: formData,
+          });
+  
+          if (response.ok) {
+            alert('Image uploaded successfully!');
+            // Reset the form after successful upload
+            setSelectedImage(null);
+            setPreview(null);
+          } else {
+            alert('Failed to upload image.');
+          }
+        } catch (error) {
+          console.error('Error uploading image:', error);
+          alert('Error uploading image.');
+        }
+      } else {
+        alert('No image selected');
+      }
+    };
 
   return (
     <form className="form-container" onSubmit={handleSubmit}>
@@ -588,12 +627,17 @@ function GovernmentForm() {
         </div>
         </div>
 
-        <div className="footer-container">
-              
+        <div className="footer-container">             
+
+             
 
               <div>
-                <img src={img2} alt="Shop"/>
-              </div>
+      <form onSubmit={handleSubmit2}>
+        <input type="file" accept="image/*" onChange={handleImageChange} />
+        {preview && <img src={preview} alt=" Preview" width="100" height="500" />}
+        <button type="submit">Upload Image</button>
+      </form>
+    </div>
 
               
          </div>

@@ -157,6 +157,7 @@ function GovernmentForm() {
       }
     };
 
+
   return (
     <form className="form-container" onSubmit={handleSubmit}>
       {/* Form Header */}
@@ -635,11 +636,9 @@ function GovernmentForm() {
       <form onSubmit={handleSubmit2}>
         <input type="file" accept="image/*" onChange={handleImageChange} />
         {preview && <img src={preview} alt=" Preview" width="100" height="500" />}
-        <button type="submit">Upload Image</button>
       </form>
     </div>
-
-              
+       
          </div>
 
          <div className="certificate">

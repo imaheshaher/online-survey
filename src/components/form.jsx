@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useRef } from 'react';
+import {useReactToPrint} from "react-to-print";
 import "./style1.css"; // Import your CSS file here
 import gandhiLogo from "./gandhi.jpeg";
 function GovernmentForm() {
@@ -104,18 +106,18 @@ function GovernmentForm() {
     console.log(formData);
   };
 
-  const [selectedOption, setSelectedOption] = useState(null);
+  // const [selectedOption, setSelectedOption] = useState(null);
 
-  const handleClick = (option) => {
-    setSelectedOption(option);
-  };
+  // const handleClick = (option) => {
+  //   setSelectedOption(option);
+  // };
 
-  const getStrikethroughStyle = (option) => {
-    if (selectedOption && selectedOption !== option) {
-      return { textDecoration: 'line-through' };
-    }
-    return {};
-  };
+  // const getStrikethroughStyle = (option) => {
+  //   if (selectedOption && selectedOption !== option) {
+  //     return { textDecoration: 'line-through' };
+  //   }
+  //   return {};
+  // };
 
   const [selectedImage, setSelectedImage] = useState(null);
   const [preview, setPreview] = useState(null);
@@ -127,7 +129,7 @@ function GovernmentForm() {
       setPreview(URL.createObjectURL(file));
     };}
 
-    const handleSubmit2 = async (e) => {
+  const handleSubmit2 = async (e) => {
       e.preventDefault();
       if (selectedImage) {
         const formData = new FormData();
@@ -156,10 +158,30 @@ function GovernmentForm() {
         alert('No image selected');
       }
     };
+    const componentRef = useRef();
+    const handlePrint = useReactToPrint({
+      content: () => componentRef.current,
+    });
 
+    const [selectedTitle, setSelectedTitle] = useState('');
+
+  const handleTitleChange = (event) => {
+    setSelectedTitle(event.target.value);
+  };
 
   return (
-    <form className="form-container" onSubmit={handleSubmit}>
+    <>
+
+    
+    <button onClick={handlePrint}>Print Form</button>
+
+   
+    <div ref={componentRef} className="print-page">
+      
+    
+    <form className="form-container" onSubmit={handleSubmit} >
+
+    <div className="first-page">
       {/* Form Header */}
       <div className="header-container">
         <div>
@@ -240,24 +262,12 @@ function GovernmentForm() {
           <label htmlFor="ownerName"> 
           <label htmlFor="ownerName">मालकाचे पूर्ण नाव </label>
 
-        <label   
-        style={getStrikethroughStyle('श्री')}
-        onClick={() => handleClick('श्री')}
-      >
-         श्री /
-      </label>
-      <label
-        style={getStrikethroughStyle('सौ')}
-        onClick={() => handleClick('सौ')}
-      >
-        सौ /
-      </label>
-      <label
-        style={getStrikethroughStyle('श्रीमती')}
-        onClick={() => handleClick('श्रीमती')}
-      >
-        श्रीमती :-
-      </label>
+          <select id="title" value={selectedTitle} onChange={handleTitleChange}>
+        <option value="">श्री.</option>
+        <option value="Mr.">श्री.</option>
+        <option value="Miss.">सौ.</option>
+        <option value="Mrs.">श्रीमती.</option>
+      </select>
 
             
           </label>
@@ -274,31 +284,13 @@ function GovernmentForm() {
         <div className="row3">
           <label htmlFor="wifeName">पत्नीचे पूर्ण नाव 
 
-                  <label   
-                style={getStrikethroughStyle('श्री')}
-                onClick={() => handleClick('श्री')}
-              >
-                श्री /
-              </label>
-              <label
-                style={getStrikethroughStyle('सौ')}
-                onClick={() => handleClick('सौ')}
-              >
-                सौ /
-              </label>
-              <label
-                style={getStrikethroughStyle('श्रीमती')}
-                onClick={() => handleClick('श्रीमती')}
-              >
-                श्रीमती :-
-      </label>
-
-
-
-
-
+          <select id="title" value={selectedTitle} onChange={handleTitleChange}>
+        <option value="">श्री.</option>
+        <option value="Mr.">श्री.</option>
+        <option value="Miss.">सौ.</option>
+        <option value="Mrs.">श्रीमती.</option>
+      </select>
           </label>
-
 
           <input
             type="text"
@@ -312,9 +304,15 @@ function GovernmentForm() {
 
 
         <div className="row5">
-          <label htmlFor="occupation">
-            भोगवटा धारकाचे नाव श्री / सौ / श्रीमती -:
-          </label>
+          
+          <label htmlFor="occupation">भोगवटा धारकाचे नाव:</label>
+      <select id="title" value={selectedTitle} onChange={handleTitleChange}>
+        <option value="">श्री.</option>
+        <option value="Mr.">श्री.</option>
+        <option value="Miss.">सौ.</option>
+        <option value="Mrs.">श्रीमती.</option>
+      </select>
+    
           <input
             type="text"
             id="occupation"
@@ -324,15 +322,17 @@ function GovernmentForm() {
             required
           />
 
-          <label htmlFor="mobile">मो नं -:</label>
-          <input
-            type="text"
-            id="mobile"
-            name="mobile"
-            value={formData.mobile}
-            onChange={handleChange}
-            required
-          />
+      <label htmlFor="mobile">मो नं -:</label>
+                <input
+                  type="text"
+                  id="mobile"
+                  name="mobile"
+                  value={formData.mobile}
+                  onChange={handleChange}
+                  required
+                />
+     </div>
+          
           </div>
 
        
@@ -380,6 +380,7 @@ function GovernmentForm() {
             onChange={handleChange}
             required
           />
+</div>
 
 
       <hr
@@ -570,7 +571,7 @@ function GovernmentForm() {
             required
           />
           </div>
-
+    
           <p>
             (टीप -: मालमत्तेच्या वर्णन क्षेत्रफळामध्ये व्हरांडा / ओटा / पडवी
             यांचा समावेश करावा ){" "}
@@ -626,7 +627,7 @@ function GovernmentForm() {
           परवानगी घेणे मिळकत धारकावर बंधनकारक आहे{" "}
         </p>
         </div>
-        </div>
+       
 
         <div className="footer-container">             
 
@@ -667,6 +668,8 @@ function GovernmentForm() {
       
       
     </form>
+    </div>
+    </>
   );
 }
 

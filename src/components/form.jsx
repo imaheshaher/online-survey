@@ -158,6 +158,7 @@ function GovernmentForm() {
         alert('No image selected');
       }
     };
+    
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
       content: () => componentRef.current,
@@ -322,18 +323,18 @@ function GovernmentForm() {
             required
           />
 
-      <label htmlFor="mobile">मो नं -:</label>
-                <input
-                  type="text"
-                  id="mobile"
-                  name="mobile"
-                  value={formData.mobile}
-                  onChange={handleChange}
-                  required
-                />
+  <label htmlFor="mobile">मो नं -:</label>
+            <input
+              type="text"
+              id="mobile"
+              name="mobile"
+              value={formData.mobile}
+              onChange={handleChange}
+              required
+            />
      </div>
           
-          </div>
+         
 
        
         <div class="row6">
@@ -627,18 +628,16 @@ function GovernmentForm() {
           परवानगी घेणे मिळकत धारकावर बंधनकारक आहे{" "}
         </p>
         </div>
-       
+        </div>
 
         <div className="footer-container">             
 
-             
-
-              <div>
-      <form onSubmit={handleSubmit2}>
-        <input type="file" accept="image/*" onChange={handleImageChange} />
-        {preview && <img src={preview} alt=" Preview" width="100" height="500" />}
-      </form>
-    </div>
+              <div onSubmit={handleSubmit2}>
+      
+              <input type="file" accept="image/*" onChange={handleImageChange} />
+              {preview && <img src={preview} alt=" Preview"  />}
+            
+              </div>
        
          </div>
 

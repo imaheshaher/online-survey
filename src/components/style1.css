@@ -110,7 +110,7 @@ body {
     align-items:last baseline
 }
 .footer-container img{
-    width: 400px;
+    width:400px;
 }
 .footer-container p{
     align-items: last baseline;
@@ -152,15 +152,15 @@ table input{
     padding-bottom: 10px;
 
   }
-  .table2{
-    input{
+  .table2 input{
+   
         width: 60px;
     }
-    td{
+    .table2 td{
         padding-left :2px; 
         padding-right: 0px;
     }
-}
+
 .table1 input{
     width: 140px;
 }
@@ -193,7 +193,6 @@ hr{
 .female, .male, .handicap input{
     width: 40px;
 }
-
 
 @media screen and (max-width : 1200px) {
     .container{
@@ -257,9 +256,11 @@ hr{
     .footer-container p{
         align-items:last baseline
     }
+    
     .footer-container img{
-        width: 400px;
+        width:400px;
     }
+
     h3{
         align-items: center;
         margin-right: 50px;
@@ -309,7 +310,7 @@ hr{
         font-size: 15px;  
     }
     .row10 input{
-        width: 8%;
+        width: 50px;
     }
     hr{
         margin-top: 2px;
@@ -322,30 +323,31 @@ hr{
     .container{
         width: 90%;
     }
-    .table1{
-        input{
+    .form-container {
+        font-size: 12px;
+    }
+    .table1 input{
             width: 140px;
         }
-        td{
+    .table1 td{
             padding-left :2px; 
             padding-right: 0px;
             width: 106px;
         }
-    }
-    .table2{
-        input{
+    
+    .table2 input{
             width: 60px;
         }
-        td{
+    .table2 td{
             padding-left :2px; 
             padding-right: 0px;
         }
-    }
+    
     .footer-container p{
         align-items:last baseline
     }
     .footer-container img{
-        width: 400px;
+        width:300px;
     }
     .footer-container p{
         align-items: last baseline;
@@ -394,6 +396,9 @@ hr{
     .main-container {
         font-size: 11px;
     }
+    .form-container {
+        font-size: 11px;
+    }
     .footer-container img{
         width: 330px;
     }
@@ -430,8 +435,9 @@ hr{
     .footer-container p{
         align-items:last baseline
     }
-    .footer-container img{
-        width: 350px;
+   
+    .footer-container img {
+        width: 200px;
     }
     .row1{
         display: flex;
@@ -457,9 +463,6 @@ hr{
     .row7{
         font-size: 10px;  
     }
-    .row7 input#text{
-        width: 6%;
-    }
     .row10{
         font-size: 10px;  
     }
@@ -469,8 +472,11 @@ hr{
     .main-container {
         font-size: 10px;
     }
+    .form-container {
+        font-size: 10px;
+    }
     .footer-container img{
-        width: 250px;
+        width: 180px;
     }
     .header-container p{
         font-size: 10px;
@@ -510,9 +516,6 @@ hr{
     .footer-container p{
         align-items:last baseline
     }
-    .footer-container img{
-        width:300px;
-    }
     .witness input{
         width: 400px;
     }
@@ -522,9 +525,35 @@ hr{
     input#occupation {
         width: 100px;
     }
+    input#aadharNumber {
+        width: 90px;
+    }
+    .row7 input {
+        width: 40px;
+    }
+    .row9 input {
+        width: 300px;
+    }
 }
 
 @media screen and (max-width:588px) {
+    .form-container {
+        font-size: 9px;
+    }
+    .main-container{
+        font-size: 9px;
+    }
+    .row9 input {
+        width: 300px;
+    }
+
+    .row7 input {
+        width: 40px;
+    }
+    input#aadharNumber {
+        width: 90px;
+    }
+    
     .table1 input{
         font-size: 9px;
         width: 90px;
@@ -566,7 +595,7 @@ hr{
         width: 30px;
     }
       .footer-container img{
-        width: 220px;
+        width: 170px;
     }
     .header-container p{
         font-size: 8px;
@@ -612,7 +641,7 @@ hr{
         font-size: 9px;
     }
     .footer-container img{
-        width: 180px;
+        width: 150px;
     }
     .header-container p{
         font-size: 8px;

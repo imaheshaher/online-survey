@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { useRef } from 'react';
-import {useReactToPrint} from "react-to-print";
 import "./style1.css"; // Import your CSS file here
 import gandhiLogo from "./gandhi.jpeg";
 function GovernmentForm() {
@@ -158,11 +156,11 @@ function GovernmentForm() {
         alert('No image selected');
       }
     };
-    
-    const componentRef = useRef();
-    const handlePrint = useReactToPrint({
-      content: () => componentRef.current,
-    });
+
+
+    const handlePrint = () => {
+      window.print();  // This triggers the browser's print dialog
+    };
 
     const [selectedTitle, setSelectedTitle] = useState('');
 
@@ -177,7 +175,7 @@ function GovernmentForm() {
     <button onClick={handlePrint}>Print Form</button>
 
    
-    <div ref={componentRef} className="print-page">
+    <div  className="print-page">
       
     
     <form className="form-container" onSubmit={handleSubmit} >
